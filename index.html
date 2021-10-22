@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css" />
+    <!--Add this-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    <!--Add this-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!--Add this-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+    <!-- <script src="p5.min.js"></script> -->
+    
+    <title>GRAPH || Algorithm</title>
+
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__logo-box">
+            <img src="./img/Logo_HCMUP.png" class="header__logo" alt="logo">
+        </div>
+        <div class="header__text-box">
+            <h3 class="heading-primary">
+                <span class="heading-primary--main">
+                    Nhóm N9103
+                </span>
+                <span class="heading-primary--sub">
+                    We are one!
+                </span>
+            </h3>
+            <!-- <a href="#" class="btn btn--white btn--animated">See our</a> -->
+        </div>
+    </header>
+
+    <!-- Main  -->
+    <main>
+        <!-- Introduction -->
+        <div class="section-intro" id="intro">
+            <div class="u-center-text u-margin-bottom-big">
+                <h2 class="heading-secondary">
+                    GIỚI THIỆU
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-1-of-2">
+                    <h3 class="heading-tertiary u-magin-bottom-small">
+                        Cây khung là gì?
+                    </h3>
+                    <p class="paragraph">
+                        Trong đồ thị vô hướng và liên thông G = (V, E), cây khung là một đồ thị con là cây bao gồm tất
+                        cả các đỉnh của G, với số cạnh tối thiểu có thể có. Một đồ thị có thể có một số cây khung. Chi
+                        phí của cây khung là tổng trọng số của tất cả các cạnh trong cây.
+                    </p>
+                    <h3 class="heading-tertiary u-margin-bottom-small">
+                        Cây khung nhỏ nhất là gì?
+                    </h3>
+                    <p class="paragraph">
+                        Cây khung nhỏ nhất (MST) hoặc cây khung có trọng số nhỏ nhất là một tập hợp con của các cạnh của
+                        đồ thị có hướng và liên thông với nhau, có trọng số cạnh nối tất cả các đỉnh với nhau, không có
+                        bất kỳ chu trình nào và với tổng trọng số cạnh nhỏ nhất có thể. Đó là, nó là một cây khung có
+                        tổng trọng số các cạnh càng nhỏ càng tốt. Số cạnh trong MST: V-1 (V - không có đỉnh trong Đồ
+                        thị).
+                    </p>
+                    <a href="#" class="btn-text">Tìm hiểu &rarr;</a>
+                </div>
+                <div class="col-1-of-2">
+                    <div class="composition">
+                        <img src="./img/Graph.jpg" alt="Graph" class="composition__photo composition__photo--p1">
+                        <img src="./img/SpanningTree.jpg" alt="SpanningTree"
+                            class="composition__photo composition__photo--p2">
+                        <img src="./img/MinimunSpanningTree.jpg" alt="MinimumSpanningTree"
+                            class="composition__photo composition__photo--p3">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Algorithm -->
+        <div class="section-algorithm" id="algorithm">
+            <div class="u-center-text u-margin-bottom-big">
+                <h2 class="heading-secondary">
+                    Thuật toán Prim và Kruskal
+                </h2>
+            </div>
+            <div class="row">
+
+                <!-- Kruskal's Algorithm -->
+                <div class="col-1-of-2">
+                    <h3 class="heading-tertiary u-magin-bottom-small">
+                        Thuật toán Kruskal's
+                    </h3>
+                    <p class="paragraph">
+                        Thuật toán của Kruskal là tìm cây khung nhỏ nhất dựa trên thuật toán tham lam (Greedy). Thuật
+                        toán
+                        Kruskal xem đồ thị như là một rừng cây và mỗi nút là một cây riêng lẻ trong rừng. Thuật toán
+                        Kruskal không phụ thuộc vào điểm bắt đầu. Một cây kết nối với cây khác nếu và chỉ nếu cây này có
+                        trọng số (weight) nhỏ nhất trong số tất cả các cây đã tìm được và không vi
+                        phạm các đặc điểm của Cây khung nhỏ nhất (MST) – đã được giới thiệu ở trên.
+                        <br><br>
+                        Để hiểu thuật toán Kruskal, mời bạn theo dõi ví dụ sau:
+                    </p>
+                    <img src="./img/Kruskal.jpg" alt="Graph" class="step-photo">
+
+                    <h3 class="heading-tertiary u-magin-bottom-small">
+                        Bước 1: Sắp xếp tất cả các cạnh theo trọng số tăng dần
+                    </h3>
+                    <p class="paragraph">
+                        Bước tiếp theo là tạo một tập các cạnh và trọng số và sắp xếp chúng theo thứ tự tăng dần về
+                        trọng số. (Giá trị trọng số là số hiển thị bên cạnh các cạnh trong hình minh họa trên.)
+                    </p>
+                    <img src="./img/table.jpg" alt="step-0" class="step-photo">
+                    <h3 class="heading-tertiary u-magin-bottom-small">
+                        Bước 2: Thêm một cạnh có trọng số thấp nhất
+                    </h3>
+                    <p class="paragraph">
+                        Bây giờ chúng ta bắt đầu thêm các cạnh vào đồ thị bắt đầu từ cạnh có trọng số thấp nhất. Tại bất
+                        cứ thời điểm nào, chúng ta cũng cần kiểm tra các thuộc tính của cây khung có còn được duy trì
+                        hay không. Trong trường hợp khi thêm một cạnh mà làm phá vỡ thuộc tính của cây khung, thì chúng
+                        ta cần cân nhắc việc không thêm cạnh đó vào đồ thị.
+                    </p>
+                    <img src="./img/Kruskal_1.jpg" alt="step-1" class="step-photo">
+                    <p class="paragraph">
+                        Trọng số nhỏ nhất trong hình là 2 và đó là các cạnh là B,D và D,T. Do đó chúng ta thêm hai cạnh
+                        này vào. Việc thêm hai cạnh này không vi phạm các đặc điểm của cây khung do đó chúng ta có thể
+                        tiếp tục lựa chọn cạnh tiếp theo.
+                        <br>
+                        Trọng số tiếp theo là 3 và đó là các cạnh A,C và C,D. Do đó chúng ta thêm hai cạnh này.
+                    </p>
+                    <img src="./img/Kruskal_2.jpg" alt="step-2" class="step-photo">
+                    <p class="paragraph">
+                        Trọng số tiếp theo trong hình là 4 và chúng ta thấy rằng khi thêm nó vào đồ thị sẽ tạo nên một
+                        chu trình trong đồ thị. Như hình minh họa:
+                    </p>
+                    <img src="./img/Kruskal_3.jpg" alt="step-3" class="step-photo">
+                    <p class="paragraph">
+                        Do đó chúng ta bỏ qua trọng số này. Tiến trình của chúng ta sẽ bỏ qua/tránh việc thêm các cạnh
+                        mà khi thêm cạnh đó vào sẽ tạo nên một chu trình trong đồ thị.
+                    </p>
+                    <img src="./img/Kruskal_4.jpg" alt="step-4" class="step-photo">
+                    <p class="paragraph">
+                        Tiếp theo với hai trọng số 5 và 6, chúng ta cũng thấy rằng chúng cũng tạo nên một chu trình. Do
+                        đó chúng ta bỏ qua hai trọng số này và chuyển tới trọng số tiếp theo.
+                    </p>
+                    <img src="./img/Kruskal_5.jpg" alt="step-4" class="step-photo">
+                    <p class="paragraph">
+                        Bây giờ đồ thị của chúng ta chỉ còn một nút để thêm vào. Giữa hai cạnh có trọng số lần lượt là 7
+                        và 8, chúng ta thêm cạnh có trọng số nhỏ hơn là 7.
+                    </p>
+                    <img src="./img/Kruskal_6.jpg" alt="step-6" class=step-photo>
+                    <p class="paragraph">
+                        Bằng việc thêm cạnh S,A chúng ta đã có một cây khung nhỏ nhất theo thuật toán của Kruskal.
+                    </p>
+                </div>
+
+                <!-- Prim's Algorithm -->
+                <div class="col-1-of-2">
+                    <h3 class="heading-tertiary u-magin-bottom-small">
+                        Thuật toán Prim's
+                    </h3>
+                    <p class="paragraph">
+                        Thuật toán Prim để tìm cây khung nhỏ nhất (giống như thuật toán Kruskal) sử dụng thuật toán Tham
+                        lam. Thuật toán Prim có một số điểm tương đồng với các thuật toán về tìm đường đi ngắn nhất.
+                        <br> <br>
+                        Thuật toán Prim trái ngược với thuật toán Kruskal, coi các nút như một cây riêng và tiếp tục
+                        thêm các nút mới vào cây khung từ đồ thị đã cho. Thuật toán Prim phụ thuộc vào điểm bắt đầu.
+                        <br> <br>
+                        Để so sánh với giải thuật Kruskal và để hiểu giải thuật Prim sâu hơn, chúng ta sẽ sử dụng cùng
+                        một ví du như trong giải thuật Kruskal:
+                    </p>
+                    <img src="./img/Prim.jpg" alt="Graph" class="step-photo">
+
+                    <h3 class="heading-tertiary u-magin-bottom-small">
+                        Bước 1: Chọn một nút bất kỳ để làm nút gốc
+                    </h3>
+                    <p class="paragraph">
+                        Giả sử chúng ta chọn nút <b>S</b> làm nút gốc với thuật toán Prim. Chúng ta có thể chọn tùy ý
+                        bất kỳ nút nào khác để làm nút gốc.
+                    </p>
+                    <h3 class="heading-tertiary u-magin-bottom-small">
+                        Bước 2: Kiểm tra các cạnh còn lại và chọn một cạnh có trọng số nhỏ nhất
+                    </h3>
+                    <p class="paragraph">
+                        Sau khi chọn nút gốc <b>S</b>, chúng ta thấy rằng S,A và S,C là hai cạnh có trọng số tương ứng
+                        là 7 và 8. Chúng ta chọn cạnh có trọng số nhỏ hơn là S,A.
+                    </p>
+                    <img src="./img/Prim_1.jpg" alt="step-1" class="step-photo">
+                    <p class="paragraph">
+                        Bây giờ, cây S-7-A được xem như là một nút và chúng ta kiểm tra tất cả các cạnh còn lại bắt đầu
+                        từ nút này. Chúng ta tiếp tục chọn cạnh có trọng số nhỏ nhất và thêm nó vào trong cây.
+                    </p>
+                    <img src="./img/Prim_2.jpg" alt="step-2" class="step-photo">
+                    <p class="paragraph">
+                        Sau bước này tạo nên cây S-7-A-3-C. Bây giờ chúng ta lại coi đó là một nút và kiểm tra tất cả
+                        các cạnh còn lại và sẽ chỉ chọn cạnh có trọng số nhỏ nhất. Trong ví dụ này là cạnh C-3-D có
+                        trọng số thấp nhất.
+                    </p>
+                    <img src="./img/Prim_3.jpg" alt="step-3" class="step-photo">
+                    <p class="paragraph">
+                        Sau khi thêm nút D vào cây khung, bây giờ chúng ta còn hai cạnh mà có cùng trọng số: D-2-T và
+                        D-2-B. Do đó chúng ta có thể thêm một trong hai cạnh. Tuy nhiên, bước tiếp theo sẽ lại thêm cạnh
+                        có trọng số 2 còn lại. Dưới đây là hình minh họa sau khi đã thêm hai cạnh.
+                    </p>
+                    <img src="./img/Prim_4.jpg" alt="step-4" class="step-photo">
+                    <p class="paragraph">
+                        Chúng ta có thể thấy rằng cây khung nhỏ nhất của cùng một đồ thị sử dụng hai thuật toán khác
+                        nhau là
+                        tương tự.
+                    </p>
+                </div>
+            </div>
+            <p style="text-align:right;margin-right: 5rem;">
+                <strong>&ndash; Theo Tutorialspoint &ndash;</strong>
+            </p>
+        </div>
+
+        <!-- Tổng kết -->
+        <div class="section-summary" id="summary">
+            <div class="u-center-text u-margin-bottom-big">
+                <h2 class="heading-secondary">
+                    Tổng kết
+                </h2>
+            </div>
+            <div class="row">
+                <h3 class="heading-tertiary u-magin-bottom-small">
+                    Ứng dụng
+                </h3>
+                <p class="paragraph">
+                    Về cơ bản cây khung được sử dụng để tìm các đường ngắn nhất để kết nối tất cả các nút trong một
+                    Graph. Các ứng dụng phổ biến của cây khung là:
+                <ul class="summary-application">
+                    <li>Lập kế hoạch mạng dân sự</li>
+                    <li>Giao thức định tuyến mạng máy tính</li>
+                    <li>Cluster Analysis</li>
+                </ul>
+                Chúng ta tìm hiểu ví dụ đơn giản sau để hiểu các ứng dụng này. Bạn thử tưởng tượng một mạng internet
+                trong thành phố là một hình Graph lớn và bây giờ kế hoạch đặt ra là triển khai các đường dây mạng sao
+                cho với độ dài dây là ngắn nhất mà vẫn có thể kết nối được tất cả các nút trong thành phố. Đó là một ví
+                dụ giải thích cho ứng dụng của cây khung.
+                </p>
+                <br>
+                <h3 class="heading-tertiary u-magin-bottom-small">
+                    Sự khác biệt giữa hai thuật toán
+                </h3>
+                <p class="paragraph">
+                    Cả thuật toán của Prim và Kruskal đều tìm ra Cây khung nhỏ nhất và tuân theo phương pháp Giải quyết
+                    vấn đề theo thuật toán Tham lam, nhưng có một vài điểm khác biệt lớn giữa chúng.
+                    Để tìm hiểu rõ hơn mời các bạn xem bảng so sánh.
+                </p>
+                <div class="u-center-text">
+                    <a href="#popup" class="btn btn--blue btn--animated">So sánh</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mô phỏng -->
+        <div class="section-simulation" id="simulation">
+            <div class="u-center-text u-margin-bottom-big">
+                <h2 class="heading-secondary">
+                    Mô phỏng Thuật toán Prim và Kruskal
+                </h2>
+            </div>
+            <script src="./js/Edge.js"></script>
+            <script src="./js/Vertex.js"></script>
+            <script src="./js/Graph.js"></script>
+            <script src="./js/main.js"></script>
+        </div>
+        <!-- Popup so sánh -->
+        <div class="popup" id="popup">
+            <div class="popup__content">
+                <div class="popup__top">
+                    <a href="#summary" class="popup__close">&times;</a>
+                    <h2 class="heading-secondary u-margin-bottom-small">Sự khác biệt giữa Prim và Kruskal</h2>
+
+                    <div class="popup__text">
+
+                        <tr>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                        </tr>
+                        <tr>
+                            <td>Peter</td>
+                            <td>Griffin</td>
+                        </tr>
+                        <tr>
+                            <td>Lois</td>
+                            <td>Griffin</td>
+                        </tr>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+            <label for="navi-toggle" class="navigation__button">
+                <span class="navigation__icon">&nbsp;</span>
+            </label>
+            <div class="navigation__background">&nbsp;</div>
+            <div class="navigation__nav">
+                <ul class="navigation__list">
+                    <li class="navigation__item"><a href="#intro" class="navigation__link">Giới thiệu</a></li>
+                    <li class="navigation__item"><a href="#algorithm" class="navigation__link">Thuật toán</a></li>
+                    <li class="navigation__item"><a href="#summary" class="navigation__link">Tổng kết</a></li>
+                    <li class="navigation__item"><a href="#simulation" class="navigation__link">Mô phỏng</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

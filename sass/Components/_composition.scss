@@ -1,0 +1,65 @@
+// components/_composition.scss
+.composition{
+    position: relative;
+    
+    &__photo{
+        width: 50%;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+        border-radius: .2rem;
+        position: absolute;
+        z-index: 10;
+        outline-offset: 1rem;
+        transition: all .2s;
+
+        &--p1{
+            left: 0;
+            top: -2rem;
+        }
+        &--title1{
+            position: absolute;
+            top:50%;
+            left: 50%;
+            color: #c2e1fd;
+            transform: translate(-65%,100%);
+            // opacity: 0;
+            transition: all .2s;
+        }
+
+        &--p2{
+            right: 2rem;
+            top: 2rem;
+        }
+
+        &--p3{
+            left: 10%;
+            top: 10rem;
+        }
+
+        &:hover {
+            transform: scale(1.25);
+            box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+            z-index: 20;      
+        }
+
+        &:hover &__photo:not(:hover){
+            transform: scale(.9)
+        }
+
+    }
+}
+
+.step-photo{
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: .4rem;
+    max-width: 100%;
+}
+
+.summary-application {
+    position: relative;
+    display: block;
+    margin-left: 5rem;
+    margin-bottom: 2rem;
+}
